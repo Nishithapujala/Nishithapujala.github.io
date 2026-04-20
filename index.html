@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nishitha Pujala | AI/ML Researcher</title>
+  <meta name="description" content="Nishitha Pujala — AI/ML Researcher, Deep Learning, NLP, Computer Vision. Published author in Springer & Taylor & Francis." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+/* ── RESET & BASE ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #06060f;
+  color: #e2e8f0;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; }
+
+/* ── TOKENS ───────────────────────────────────────────────── */
+:root {
+  --grad: linear-gradient(135deg, #a855f7, #6366f1, #3b82f6);
+  --grad-text: linear-gradient(135deg, #c084fc, #818cf8, #60a5fa);
+  --surface: rgba(255,255,255,0.04);
+  --border:  rgba(255,255,255,0.08);
+  --purple: #a855f7;
+  --blue:   #3b82f6;
+  --indigo: #6366f1;
+  --teal:   #14b8a6;
+  --pink:   #ec4899;
+  --orange: #f97316;
+  --gold:   #f59e0b;
+  --radius: 16px;
+  --shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+/* ── UTILITIES ────────────────────────────────────────────── */
+.container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+.gradient-text {
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.section { padding: 100px 0; }
+.section-alt { background: rgba(255,255,255,0.015); }
+
+.section-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(168,85,247,.12);
+  border: 1px solid rgba(168,85,247,.25);
+  color: #c084fc;
+  font-size: 12px; font-weight: 600; letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 6px 14px; border-radius: 999px;
+  margin-bottom: 16px;
+}
+.section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700; line-height: 1.15;
+  margin-bottom: 56px; color: #f1f5f9;
+}
+
+/* ── SCROLL REVEAL ────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── NAVBAR ───────────────────────────────────────────────── */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 16px 0;
+  transition: background .3s, backdrop-filter .3s, box-shadow .3s;
+}
+.navbar.scrolled {
+  background: rgba(6,6,15,.75);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 var(--border);
+}
+.nav-inner {
+  max-width: 1140px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; gap: 40px;
+}
+.nav-logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px; font-weight: 700; color: #f1f5f9;
+  flex-shrink: 0;
+}
+.nav-logo .dot { color: var(--purple); }
+.nav-links {
+  display: flex; gap: 32px; flex: 1; justify-content: center;
+}
+.nav-links a {
+  font-size: 14px; font-weight: 500; color: #94a3b8;
+  transition: color .2s;
+}
+.nav-links a:hover, .nav-links a.active { color: #f1f5f9; }
+.nav-cta {
+  background: var(--grad);
+  color: #fff; font-size: 13px; font-weight: 600;
+  padding: 9px 22px; border-radius: 999px;
+  transition: opacity .2s, transform .2s;
+  flex-shrink: 0;
+}
+.nav-cta:hover { opacity: .85; transform: translateY(-1px); }
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 4px;
+}
+.hamburger span {
+  display: block; width: 22px; height: 2px;
+  background: #e2e8f0; border-radius: 2px;
+  transition: transform .3s, opacity .3s;
+}
+
+/* ── HERO ─────────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  position: relative; overflow: hidden; padding: 120px 0 80px;
+}
+.hero-bg {
+  position: absolute; inset: 0; overflow: hidden; z-index: 0;
+}
+.blob {
+  position: absolute; border-radius: 50%;
+  filter: blur(80px); opacity: .35;
+  animation: float 8s ease-in-out infinite;
+}
+.blob-1 {
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, #7c3aed, transparent 70%);
+  top: -200px; right: -100px; animation-delay: 0s;
+}
+.blob-2 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, #2563eb, transparent 70%);
+  bottom: -100px; left: -100px; animation-delay: -3s;
+}
+.blob-3 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, #ec4899, transparent 70%);
+  top: 50%; left: 50%; transform: translate(-50%,-50%);
+  animation-delay: -6s; opacity: .15;
+}
+.grid-overlay {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+@keyframes float {
+  0%,100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-30px) scale(1.05); }
+}
+
+.hero-content {
+  position: relative; z-index: 1;
+  max-width: 1140px; margin: 0 auto; padding: 0 24px;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  padding: 7px 16px; border-radius: 999px;
+  font-size: 13px; color: #94a3b8; margin-bottom: 28px;
+}
+.badge-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity: 1; } 50% { opacity: .4; }
+}
+
+.hero-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(56px, 9vw, 96px);
+  font-weight: 800; line-height: 1.0;
+  color: #f1f5f9; margin-bottom: 20px; letter-spacing: -2px;
+}
+.hero-roles {
+  font-size: clamp(18px, 2.5vw, 24px);
+  color: #94a3b8; margin-bottom: 24px;
+  font-weight: 400;
+}
+.role-typed { color: #f1f5f9; font-weight: 600; }
+.cursor {
+  color: var(--purple); animation: blink 1s infinite;
+  font-weight: 300;
+}
+@keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
+
+.hero-desc {
+  max-width: 520px; font-size: 16px; color: #64748b;
+  margin-bottom: 40px; line-height: 1.7;
+}
+.hero-desc strong { color: #94a3b8; }
+
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; border-radius: 999px;
+  font-size: 15px; font-weight: 600;
+  transition: transform .2s, box-shadow .2s, opacity .2s;
+  cursor: pointer; border: none;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-primary {
+  background: var(--grad); color: #fff;
+  box-shadow: 0 4px 24px rgba(99,102,241,.4);
+}
+.btn-primary:hover { box-shadow: 0 8px 32px rgba(99,102,241,.6); }
+.btn-ghost {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: #e2e8f0;
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,.2); }
+
+.hero-socials {
+  display: flex; gap: 16px;
+}
+.hero-socials a {
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; color: #64748b;
+  transition: color .2s, border-color .2s, transform .2s;
+}
+.hero-socials a svg { width: 18px; height: 18px; stroke: currentColor; fill: none; }
+.hero-socials a:hover { color: #f1f5f9; border-color: rgba(255,255,255,.2); transform: translateY(-2px); }
+
+.hero-scroll {
+  position: absolute; bottom: 32px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  color: #334155; font-size: 10px; letter-spacing: .15em; text-transform: uppercase;
+  z-index: 1;
+}
+.scroll-line {
+  width: 1px; height: 40px;
+  background: linear-gradient(to bottom, transparent, #334155);
+  animation: scrollDrop 2s ease-in-out infinite;
+}
+@keyframes scrollDrop {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ── ABOUT ────────────────────────────────────────────────── */
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+  align-items: start;
+}
+.about-text p {
+  color: #94a3b8; margin-bottom: 16px; font-size: 15.5px; line-height: 1.8;
+}
+.about-text strong { color: #e2e8f0; }
+.about-links { display: flex; gap: 16px; margin-top: 28px; }
+.about-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--surface); border: 1px solid var(--border);
+  color: #94a3b8; padding: 10px 18px; border-radius: 10px;
+  font-size: 14px; font-weight: 500;
+  transition: color .2s, border-color .2s, transform .2s;
+}
+.about-link svg { width: 16px; height: 16px; fill: currentColor; flex-shrink: 0; }
+.about-link:hover { color: #f1f5f9; border-color: rgba(255,255,255,.2); transform: translateY(-1px); }
+
+.about-stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+.stat-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 28px 24px;
+  text-align: center;
+  transition: border-color .2s, transform .2s;
+}
+.stat-card:hover { border-color: rgba(168,85,247,.3); transform: translateY(-3px); }
+.stat-num {
+  display: block; font-family: 'Space Grotesk', sans-serif;
+  font-size: 42px; font-weight: 700; line-height: 1;
+  margin-bottom: 8px;
+}
+.stat-label { font-size: 13px; color: #64748b; line-height: 1.4; }
+
+/* ── SKILLS ───────────────────────────────────────────────── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+.skill-group {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 24px;
+  transition: border-color .2s, transform .2s;
+}
+.skill-group:hover { border-color: rgba(255,255,255,.14); transform: translateY(-2px); }
+.skill-group-header {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+}
+.skill-icon { font-size: 22px; }
+.skill-group h3 { font-size: 15px; font-weight: 600; color: #e2e8f0; }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.tag {
+  display: inline-block;
+  padding: 5px 12px; border-radius: 999px;
+  font-size: 12px; font-weight: 500;
+}
+.tag-purple { background: rgba(168,85,247,.15); color: #c084fc; border: 1px solid rgba(168,85,247,.25); }
+.tag-blue   { background: rgba(59,130,246,.15);  color: #60a5fa; border: 1px solid rgba(59,130,246,.25); }
+.tag-teal   { background: rgba(20,184,166,.15);  color: #2dd4bf; border: 1px solid rgba(20,184,166,.25); }
+.tag-orange { background: rgba(249,115,22,.15);  color: #fb923c; border: 1px solid rgba(249,115,22,.25); }
+.tag-pink   { background: rgba(236,72,153,.15);  color: #f472b6; border: 1px solid rgba(236,72,153,.25); }
+.tag-gold   { background: rgba(245,158,11,.15);  color: #fbbf24; border: 1px solid rgba(245,158,11,.25); }
+.tag-sm { background: rgba(255,255,255,.06); color: #94a3b8; border: 1px solid var(--border); font-size: 11px; padding: 3px 10px; }
+
+/* ── TIMELINE ─────────────────────────────────────────────── */
+.timeline { position: relative; padding-left: 32px; }
+.timeline::before {
+  content: ''; position: absolute; left: 7px; top: 8px;
+  width: 2px; height: calc(100% - 16px);
+  background: linear-gradient(to bottom, var(--purple), transparent);
+}
+.timeline-item {
+  position: relative; margin-bottom: 32px;
+}
+.timeline-dot {
+  position: absolute; left: -29px; top: 22px;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--grad);
+  box-shadow: 0 0 12px rgba(168,85,247,.6);
+}
+.timeline-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 28px;
+  transition: border-color .25s, transform .25s;
+}
+.timeline-card:hover { border-color: rgba(168,85,247,.25); transform: translateX(4px); }
+.tcard-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 16px; margin-bottom: 16px; flex-wrap: wrap;
+}
+.tcard-title { font-size: 17px; font-weight: 700; color: #f1f5f9; margin-bottom: 4px; }
+.tcard-org   { font-size: 13px; color: #64748b; }
+.tcard-date  {
+  font-size: 12px; color: #a855f7; font-weight: 500;
+  background: rgba(168,85,247,.1); border: 1px solid rgba(168,85,247,.2);
+  padding: 4px 12px; border-radius: 999px; white-space: nowrap; flex-shrink: 0;
+}
+.tcard-bullets { margin-bottom: 16px; }
+.tcard-bullets li {
+  font-size: 14px; color: #94a3b8; padding: 4px 0 4px 16px;
+  position: relative; line-height: 1.6;
+}
+.tcard-bullets li::before {
+  content: '▸'; position: absolute; left: 0; color: var(--purple);
+}
+.tcard-bullets strong { color: #e2e8f0; }
+.tcard-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* ── PROJECTS ─────────────────────────────────────────────── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+.project-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 28px;
+  display: flex; flex-direction: column; gap: 16px;
+  transition: border-color .25s, transform .25s, box-shadow .25s;
+}
+.project-card:hover {
+  border-color: rgba(99,102,241,.35);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(99,102,241,.15);
+}
+.project-top { display: flex; justify-content: space-between; align-items: center; }
+.project-icon { font-size: 28px; }
+.project-links a {
+  display: flex; align-items: center;
+  color: #475569; transition: color .2s;
+}
+.project-links a svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+.project-links a:hover { color: #f1f5f9; }
+.project-title { font-size: 17px; font-weight: 700; color: #f1f5f9; }
+.project-desc  { font-size: 14px; color: #64748b; line-height: 1.65; flex: 1; }
+.project-tags  { display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* ── PUBLICATIONS ─────────────────────────────────────────── */
+.pubs-list { display: flex; flex-direction: column; gap: 14px; }
+.pub-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 24px 28px;
+  display: flex; align-items: flex-start; gap: 20px;
+  transition: border-color .25s, transform .25s;
+  cursor: pointer;
+}
+.pub-card:hover:not(.pub-review) {
+  border-color: rgba(255,255,255,.15); transform: translateX(4px);
+}
+.pub-badge {
+  flex-shrink: 0; font-size: 11px; font-weight: 700;
+  padding: 4px 12px; border-radius: 999px; text-transform: uppercase;
+  letter-spacing: .07em; white-space: nowrap;
+}
+.pub-tf      { background: rgba(249,115,22,.15);  color: #fb923c; border: 1px solid rgba(249,115,22,.25); }
+.pub-springer{ background: rgba(236,72,153,.15);  color: #f472b6; border: 1px solid rgba(236,72,153,.25); }
+.pub-rg      { background: rgba(20,184,166,.15);  color: #2dd4bf; border: 1px solid rgba(20,184,166,.25); }
+.pub-pending { background: rgba(245,158,11,.15);  color: #fbbf24; border: 1px solid rgba(245,158,11,.25); }
+
+.pub-title   { font-size: 15px; font-weight: 600; color: #e2e8f0; margin-bottom: 6px; line-height: 1.4; }
+.pub-authors { font-size: 13px; color: #475569; }
+.pub-arrow   { margin-left: auto; font-size: 18px; color: #334155; flex-shrink: 0; padding-left: 12px; transition: transform .2s, color .2s; }
+.pub-card:hover .pub-arrow { transform: translateX(4px); color: #94a3b8; }
+
+/* ── CONTACT ──────────────────────────────────────────────── */
+.contact-sub {
+  max-width: 560px; color: #64748b; font-size: 16px;
+  line-height: 1.75; margin-bottom: 48px;
+}
+.contact-cards {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+.contact-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 24px;
+  display: flex; align-items: center; gap: 16px;
+  transition: border-color .2s, transform .2s;
+}
+.contact-card:hover { border-color: rgba(99,102,241,.3); transform: translateY(-3px); }
+.cc-icon {
+  width: 44px; height: 44px; flex-shrink: 0;
+  background: rgba(99,102,241,.1); border-radius: 12px;
+  display: flex; align-items: center; justify-content: center; color: #818cf8;
+}
+.cc-icon svg { width: 20px; height: 20px; }
+.cc-label { font-size: 11px; color: #475569; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 4px; }
+.cc-val   { font-size: 13px; color: #e2e8f0; font-weight: 500; }
+
+/* ── FOOTER ───────────────────────────────────────────────── */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 0; text-align: center;
+}
+.footer p { font-size: 14px; color: #334155; }
+.footer-sub { margin-top: 6px; font-size: 12px; }
+
+/* ── RESPONSIVE ───────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex; flex-direction: column;
+    position: fixed; top: 64px; left: 0; right: 0;
+    background: rgba(6,6,15,.96); backdrop-filter: blur(20px);
+    padding: 24px; gap: 16px; border-bottom: 1px solid var(--border);
+    z-index: 99;
+  }
+  .nav-links.open a { font-size: 16px; }
+  .hamburger { display: flex; }
+  .tcard-header { flex-direction: column; }
+}
+@media (max-width: 600px) {
+  .section { padding: 72px 0; }
+  .hero-name { letter-spacing: -1px; }
+  .about-stats { grid-template-columns: 1fr 1fr; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .hero-scroll { display: none; }
+}
+</style>
+</head>
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">NP<span class="dot">.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="mailto:nishithapujala0303@gmail.com" class="nav-cta">Hire Me</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge reveal">
+        <span class="badge-dot"></span>Open to Work · May 2026
+      </div>
+      <h1 class="hero-name reveal">
+        <span>Nishitha</span><br />
+        <span class="gradient-text">Pujala</span>
+      </h1>
+      <div class="hero-roles reveal">
+        <span class="role-static">I build </span>
+        <span class="role-typed" id="typedText"></span>
+        <span class="cursor">|</span>
+      </div>
+      <p class="hero-desc reveal">
+        AI/ML Researcher &amp; Engineer · Published in <strong>Springer</strong> &amp; <strong>Taylor&nbsp;&amp;&nbsp;Francis</strong><br />
+        Deep Learning · NLP · Computer Vision · Full‑Stack AI
+      </p>
+      <div class="hero-actions reveal">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+      </div>
+      <div class="hero-socials reveal">
+        <a href="https://www.linkedin.com/in/nishitha-pujala" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="https://github.com/Nishithapujala" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </a>
+        <a href="mailto:nishithapujala0303@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>scroll</span>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-tag reveal">About Me</div>
+      <h2 class="section-title reveal">Researcher. Engineer. <span class="gradient-text">Builder.</span></h2>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>I'm a Computer Science graduate student at <strong>Texas A&amp;M University – Corpus Christi</strong>, specializing in AI, Machine Learning, and Deep Learning. With 2+ years of research experience across three universities on two continents, I've built clinical AI systems that predict cardiovascular disease and Alzheimer's progression from real-world medical datasets.</p>
+          <p>My work has been published in <strong>Springer</strong>, <strong>Taylor &amp; Francis</strong>, and <strong>ResearchGate</strong> — and I have 3 more papers currently under review. I combine research rigor with engineering execution: from Jupyter notebooks to deployed full-stack applications.</p>
+          <p>I'm actively seeking <strong>full-time roles</strong> in Machine Learning Engineering, Data Science, or AI Research starting May 2026.</p>
+          <div class="about-links">
+            <a href="https://www.linkedin.com/in/nishitha-pujala" target="_blank" class="about-link">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://github.com/Nishithapujala" target="_blank" class="about-link">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+        <div class="about-stats reveal">
+          <div class="stat-card">
+            <span class="stat-num gradient-text">4</span>
+            <span class="stat-label">Peer-Reviewed<br>Publications</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num gradient-text">3+</span>
+            <span class="stat-label">Under Review<br>2025–2026</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num gradient-text">2+</span>
+            <span class="stat-label">Years Research<br>Experience</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num gradient-text">5</span>
+            <span class="stat-label">AI/ML Projects<br>Deployed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SKILLS ── -->
+  <section class="section section-alt" id="skills">
+    <div class="container">
+      <div class="section-tag reveal">Tech Stack</div>
+      <h2 class="section-title reveal">Skills &amp; <span class="gradient-text">Tools</span></h2>
+      <div class="skills-grid">
+
+        <div class="skill-group reveal">
+          <div class="skill-group-header">
+            <div class="skill-icon">🤖</div>
+            <h3>ML / AI</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="tag tag-purple">TensorFlow</span>
+            <span class="tag tag-purple">PyTorch</span>
+            <span class="tag tag-purple">scikit-learn</span>
+            <span class="tag tag-purple">XGBoost</span>
+            <span class="tag tag-purple">CNNs</span>
+            <span class="tag tag-purple">NLP</span>
+            <span class="tag tag-purple">Deep Learning</span>
+            <span class="tag tag-purple">Computer Vision</span>
+            <span class="tag tag-purple">BERT</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <div class="skill-group-header">
+            <div class="skill-icon">💻</div>
+            <h3>Languages</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="tag tag-blue">Python</span>
+            <span class="tag tag-blue">Java</span>
+            <span class="tag tag-blue">JavaScript</span>
+            <span class="tag tag-blue">SQL</span>
+            <span class="tag tag-blue">Kotlin</span>
+            <span class="tag tag-blue">C</span>
+            <span class="tag tag-blue">R</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <div class="skill-group-header">
+            <div class="skill-icon">🌐</div>
+            <h3>Web &amp; Backend</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="tag tag-teal">React.js</span>
+            <span class="tag tag-teal">Node.js</span>
+            <span class="tag tag-teal">Flask</span>
+            <span class="tag tag-teal">Spring Boot</span>
+            <span class="tag tag-teal">REST APIs</span>
+            <span class="tag tag-teal">HTML/CSS</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <div class="skill-group-header">
+            <div class="skill-icon">⚙️</div>
+            <h3>DevOps &amp; Cloud</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="tag tag-orange">Docker</span>
+            <span class="tag tag-orange">Kubernetes</span>
+            <span class="tag tag-orange">Git</span>
+            <span class="tag tag-orange">Firebase</span>
+            <span class="tag tag-orange">GitHub Actions</span>
+            <span class="tag tag-orange">Apache Kafka</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <div class="skill-group-header">
+            <div class="skill-icon">📊</div>
+            <h3>Data &amp; Analytics</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="tag tag-pink">Pandas</span>
+            <span class="tag tag-pink">NumPy</span>
+            <span class="tag tag-pink">ETL Pipelines</span>
+            <span class="tag tag-pink">Power BI</span>
+            <span class="tag tag-pink">Jupyter</span>
+            <span class="tag tag-pink">Matplotlib</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <div class="skill-group-header">
+            <div class="skill-icon">🏅</div>
+            <h3>Certifications</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="tag tag-gold">Google</span>
+            <span class="tag tag-gold">IBM</span>
+            <span class="tag tag-gold">University of Michigan</span>
+            <span class="tag tag-gold">CISCO Networking</span>
+            <span class="tag tag-gold">CITI Program</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EXPERIENCE ── -->
+  <section class="section" id="experience">
+    <div class="container">
+      <div class="section-tag reveal">Work History</div>
+      <h2 class="section-title reveal">Experience &amp; <span class="gradient-text">Research</span></h2>
+      <div class="timeline">
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="tcard-header">
+              <div>
+                <h3 class="tcard-title">AI/ML Research Assistant</h3>
+                <p class="tcard-org">Stanley College of Engineering &amp; Technology · India</p>
+              </div>
+              <span class="tcard-date">Apr 2022 – May 2024</span>
+            </div>
+            <ul class="tcard-bullets">
+              <li>Spearheaded research in CNNs, NLP, and AI with a 5+ person team; authored <strong>4 peer-reviewed publications</strong> in Taylor &amp; Francis and Springer.</li>
+              <li>Architected full-stack ML applications using Java, Spring Boot, and SQL; reduced deployment cycle time by <strong>30%</strong> through modular QA workflows.</li>
+              <li>Orchestrated parallel workstreams across healthcare AI, soft computing, and Industry 5.0 — delivering 4 publications within 2 years.</li>
+            </ul>
+            <div class="tcard-tags">
+              <span class="tag tag-sm">Java</span><span class="tag tag-sm">Spring Boot</span><span class="tag tag-sm">CNNs</span><span class="tag tag-sm">NLP</span><span class="tag tag-sm">Deep Learning</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="tcard-header">
+              <div>
+                <h3 class="tcard-title">Research Assistant – CVD Prediction</h3>
+                <p class="tcard-org">Botho University · Remote</p>
+              </div>
+              <span class="tcard-date">May – Oct 2023</span>
+            </div>
+            <ul class="tcard-bullets">
+              <li>Engineered an MDNN on the Cleveland Heart Disease dataset (303 samples, 14 features); outperformed SVM and logistic regression on AUC-ROC and F1-score.</li>
+              <li>Constructed an end-to-end ML pipeline; achieved <strong>superior recall for high-risk patients</strong>, reducing life-critical false negatives in cardiovascular diagnostics.</li>
+              <li>Benchmarked against 3 classical ML baselines; disseminated findings on ResearchGate.</li>
+            </ul>
+            <div class="tcard-tags">
+              <span class="tag tag-sm">MDNN</span><span class="tag tag-sm">Python</span><span class="tag tag-sm">scikit-learn</span><span class="tag tag-sm">AUC-ROC</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="tcard-header">
+              <div>
+                <h3 class="tcard-title">Research Assistant – Neuroimaging &amp; Alzheimer's</h3>
+                <p class="tcard-org">University of Johannesburg · Remote</p>
+              </div>
+              <span class="tcard-date">Nov 2023 – Apr 2024</span>
+            </div>
+            <ul class="tcard-bullets">
+              <li>Developed a CNN prognostic framework on OASIS/ADNI MRI datasets (<strong>1,000+ scans</strong>) with digital twin–guided modeling for Alzheimer's progression.</li>
+              <li>Validated against <strong>5 ML/DL baselines</strong>; outperformed all on progression accuracy with full clinical interpretability.</li>
+              <li>Integrated explainability layers; published on ResearchGate under the Healthcare 6.0 framework.</li>
+            </ul>
+            <div class="tcard-tags">
+              <span class="tag tag-sm">CNN</span><span class="tag tag-sm">PyTorch</span><span class="tag tag-sm">MRI</span><span class="tag tag-sm">OASIS</span><span class="tag tag-sm">ADNI</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="tcard-header">
+              <div>
+                <h3 class="tcard-title">AI/ML Intern</h3>
+                <p class="tcard-org">IIT Hyderabad · India</p>
+              </div>
+              <span class="tcard-date">Apr – May 2023</span>
+            </div>
+            <ul class="tcard-bullets">
+              <li>Built H1N1 vaccine-uptake classifier on 26,000+ NHFS records; achieved <strong>~82% accuracy</strong> (+12% vs. baseline) using SMOTE + XGBoost.</li>
+              <li>Constructed a Taxi Fare Prediction system on <strong>500K+ NYC trip records</strong>; reduced RMSE by 15% via geospatial feature engineering and GridSearchCV.</li>
+              <li>Delivered two production-ready ML pipelines with full EDA documentation within a 2-month internship.</li>
+            </ul>
+            <div class="tcard-tags">
+              <span class="tag tag-sm">XGBoost</span><span class="tag tag-sm">SMOTE</span><span class="tag tag-sm">Pandas</span><span class="tag tag-sm">Jupyter</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ── -->
+  <section class="section section-alt" id="projects">
+    <div class="container">
+      <div class="section-tag reveal">My Work</div>
+      <h2 class="section-title reveal">Featured <span class="gradient-text">Projects</span></h2>
+      <div class="projects-grid">
+
+        <div class="project-card reveal">
+          <div class="project-top">
+            <div class="project-icon">👗</div>
+            <div class="project-links">
+              <a href="https://github.com/Nishithapujala/Digital-Wadrobe" target="_blank" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Digital Wardrobe</h3>
+          <p class="project-desc">Full-stack wardrobe management app with React.js, Node.js, Firebase, JWT auth, and Docker CI/CD. Reduced release cycle time by 60% through containerized deployment.</p>
+          <div class="project-tags">
+            <span class="tag tag-sm">React.js</span><span class="tag tag-sm">Node.js</span><span class="tag tag-sm">Firebase</span><span class="tag tag-sm">Docker</span><span class="tag tag-sm">JWT</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-top">
+            <div class="project-icon">🤖</div>
+            <div class="project-links">
+              <a href="https://github.com/Nishithapujala/Ecommerce-Chatbot" target="_blank" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">AI E-Commerce Chatbot</h3>
+          <p class="project-desc">NLP-driven chatbot using Python, Flask &amp; NLTK with 500+ labeled intents. Achieved 87%+ response accuracy — 30% faster than baseline keyword matching.</p>
+          <div class="project-tags">
+            <span class="tag tag-sm">Python</span><span class="tag tag-sm">Flask</span><span class="tag tag-sm">NLTK</span><span class="tag tag-sm">NLP</span><span class="tag tag-sm">REST API</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-top">
+            <div class="project-icon">💉</div>
+            <div class="project-links">
+              <a href="https://github.com/Nishithapujala/h1n1-Vaccine" target="_blank" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">H1N1 Vaccine Uptake Prediction</h3>
+          <p class="project-desc">End-to-end ML pipeline on 26,000+ NHFS respondents. Applied SMOTE + XGBoost with 35+ engineered features — achieved ~82% accuracy for public health insights.</p>
+          <div class="project-tags">
+            <span class="tag tag-sm">XGBoost</span><span class="tag tag-sm">SMOTE</span><span class="tag tag-sm">scikit-learn</span><span class="tag tag-sm">Pandas</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-top">
+            <div class="project-icon">🚕</div>
+            <div class="project-links">
+              <a href="https://github.com/Nishithapujala/Taxifare" target="_blank" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Taxi Fare Prediction</h3>
+          <p class="project-desc">Geospatial fare predictor on 500K+ NYC trip records. Engineered haversine &amp; zone features; XGBoost via GridSearchCV reduced RMSE by 15% over linear baseline.</p>
+          <div class="project-tags">
+            <span class="tag tag-sm">XGBoost</span><span class="tag tag-sm">NumPy</span><span class="tag tag-sm">Geospatial</span><span class="tag tag-sm">Jupyter</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-top">
+            <div class="project-icon">🌀</div>
+            <div class="project-links">
+              <a href="https://github.com/Nishithapujala/Enigma-Generation-" target="_blank" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Enigma Maze Generator</h3>
+          <p class="project-desc">Interactive browser maze using recursive backtracking &amp; BFS/DFS pathfinding visualization on HTML5 Canvas. Smooth 50×50 grid rendering with zero dependencies.</p>
+          <div class="project-tags">
+            <span class="tag tag-sm">JavaScript</span><span class="tag tag-sm">HTML5 Canvas</span><span class="tag tag-sm">BFS/DFS</span><span class="tag tag-sm">CSS3</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PUBLICATIONS ── -->
+  <section class="section" id="publications">
+    <div class="container">
+      <div class="section-tag reveal">Research</div>
+      <h2 class="section-title reveal">Publications &amp; <span class="gradient-text">Papers</span></h2>
+      <div class="pubs-list">
+
+        <a class="pub-card reveal" href="https://www.taylorfrancis.com/chapters/edit/10.1201/9781032648323-7/industry-4-0-5-0-reddy-kishor-kumar-nishitha-pujala-srinath-doss" target="_blank" rel="noopener">
+          <div class="pub-badge pub-tf">Taylor &amp; Francis</div>
+          <div>
+            <h3 class="pub-title">From Industry 4.0 to 5.0: Navigating Human-Tech Symbiosis in the Era of COVID-19</h3>
+            <p class="pub-authors">Kishor Kumar Reddy, Nishitha Pujala, Srinath Doss</p>
+          </div>
+          <div class="pub-arrow">→</div>
+        </a>
+
+        <a class="pub-card reveal" href="https://link.springer.com/chapter/10.1007/978-981-97-8533-9_12" target="_blank" rel="noopener">
+          <div class="pub-badge pub-springer">Springer</div>
+          <div>
+            <h3 class="pub-title">Unleashing the Potential: Soft Computing in the Era of Industry 5.0</h3>
+            <p class="pub-authors">Nishitha Pujala, Kishor Kumar Reddy et al.</p>
+          </div>
+          <div class="pub-arrow">→</div>
+        </a>
+
+        <a class="pub-card reveal" href="https://d1wqtxts1xzle7.cloudfront.net/110763548/latest-libre.pdf?1706023940=&response-content-disposition=inline%3B+filename%3DAn_Efficient_Healthcare_Monitoring_Syste.pdf&Expires=1776574805&Signature=Ocx8mlgigS~~vy0W8A2ha7H3TmgbnN1SpmxY8vFjuXNpJoZjvMgb9GSiU7XpHf-6c39LKbsRNJ9p-mk4AMgki-ZTasUebuk8jSpFFxPiphmanP0ZkJ3p374T3haItfRGTwFWpqSuJs2LaLUJvIjsW0oeHq~ug5rfwIaycYV2xsWx0xSBzx~6wUWppJGlDDSIZG5i7KDWXMZSo6~UM9vgJtQgDYPrXAmOlogqs5fhghlvLzEEDtsgkgmwEulUubE97SN3Peh7Dig57146S~usTHVp1rI7TOYMn2PKVR0lu-lSIsPn1vth1Htx6XNTAWl1tbI4MjQ__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA" target="_blank" rel="noopener">
+          <div class="pub-badge pub-rg">ResearchGate</div>
+          <div>
+            <h3 class="pub-title">Efficient Healthcare Monitoring System for Cardiovascular Diseases using Deep Modified Neural Networks</h3>
+            <p class="pub-authors">Nishitha Pujala, Kishor Kumar Reddy et al.</p>
+          </div>
+          <div class="pub-arrow">→</div>
+        </a>
+
+        <a class="pub-card reveal" href="https://www.taylorfrancis.com/chapters/edit/10.1201/9781003503934-5/exploring-neurodegenerative-progression-healthcare-6-0-insights-using-sustainable-convolutional-neural-networks-nishitha-pujala-kishor-kumar-reddy-nastassia-thandiwe-sithole" target="_blank" rel="noopener">
+          <div class="pub-badge pub-tf">Taylor &amp; Francis</div>
+          <div>
+            <h3 class="pub-title">Exploring Neurodegenerative Progression: Healthcare 6.0 Insights using Sustainable CNNs</h3>
+            <p class="pub-authors">Nishitha Pujala, Kishor Kumar Reddy, Nastassia Thandiwe Sithole</p>
+          </div>
+          <div class="pub-arrow">→</div>
+        </a>
+
+        <div class="pub-card pub-review reveal">
+          <div class="pub-badge pub-pending">Under Review</div>
+          <div>
+            <h3 class="pub-title">3 Papers Under Review (2025–2026)</h3>
+            <p class="pub-authors">AI in Parenting Ethics &nbsp;·&nbsp; Federated AI in Agriculture &nbsp;·&nbsp; AI-Powered Pest Detection</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section class="section section-alt" id="contact">
+    <div class="container">
+      <div class="section-tag reveal">Get In Touch</div>
+      <h2 class="section-title reveal">Let's <span class="gradient-text">Connect</span></h2>
+      <p class="contact-sub reveal">I'm actively looking for full-time roles in ML Engineering, Data Science, or AI Research starting May 2026. Whether you have an opportunity, a collaboration idea, or just want to chat about AI — my inbox is open.</p>
+      <div class="contact-cards reveal">
+        <a href="mailto:nishithapujala0303@gmail.com" class="contact-card">
+          <div class="cc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <p class="cc-label">Email</p>
+            <p class="cc-val">nishithapujala0303@gmail.com</p>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/nishitha-pujala" target="_blank" class="contact-card">
+          <div class="cc-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <div>
+            <p class="cc-label">LinkedIn</p>
+            <p class="cc-val">linkedin.com/in/nishitha-pujala</p>
+          </div>
+        </a>
+        <a href="https://github.com/Nishithapujala" target="_blank" class="contact-card">
+          <div class="cc-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </div>
+          <div>
+            <p class="cc-label">GitHub</p>
+            <p class="cc-val">github.com/Nishithapujala</p>
+          </div>
+        </a>
+        <a href="tel:+12534208351" class="contact-card">
+          <div class="cc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.58 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <p class="cc-label">Phone</p>
+            <p class="cc-val">+1 (253) 420-8351</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container">
+      <p>Designed &amp; built by <span class="gradient-text">Nishitha Pujala</span> · 2026</p>
+      <p class="footer-sub">Texas A&amp;M University – Corpus Christi · AI/ML Researcher</p>
+    </div>
+  </footer>
+
+<script>
+// ── TYPED TEXT ─────────────────────────────────────────────
+const roles = [
+  'intelligent systems.',
+  'deep learning models.',
+  'clinical AI solutions.',
+  'NLP pipelines.',
+  'full-stack AI apps.',
+  'the future of healthcare AI.',
+];
+let roleIdx = 0, charIdx = 0, deleting = false;
+const typedEl = document.getElementById('typedText');
+
+function type() {
+  const current = roles[roleIdx];
+  if (!deleting) {
+    typedEl.textContent = current.slice(0, ++charIdx);
+    if (charIdx === current.length) { deleting = true; setTimeout(type, 2200); return; }
+  } else {
+    typedEl.textContent = current.slice(0, --charIdx);
+    if (charIdx === 0) {
+      deleting = false;
+      roleIdx = (roleIdx + 1) % roles.length;
+    }
+  }
+  setTimeout(type, deleting ? 45 : 75);
+}
+type();
+
+// ── NAVBAR SCROLL ──────────────────────────────────────────
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+  highlightNav();
+}, { passive: true });
+
+// ── ACTIVE NAV LINK ────────────────────────────────────────
+const sections = document.querySelectorAll('section[id]');
+const navAnchors = document.querySelectorAll('.nav-links a');
+
+function highlightNav() {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  navAnchors.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+}
+
+// ── HAMBURGER MENU ─────────────────────────────────────────
+const ham = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+ham.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+navLinks.querySelectorAll('a').forEach(a =>
+  a.addEventListener('click', () => navLinks.classList.remove('open'))
+);
+
+// ── SCROLL REVEAL ──────────────────────────────────────────
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver(
+  (entries) => entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+  }),
+  { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+);
+revealEls.forEach(el => io.observe(el));
+
+// ── STAGGER CHILDREN REVEAL ────────────────────────────────
+document.querySelectorAll('.skills-grid, .projects-grid, .about-stats, .contact-cards').forEach(grid => {
+  [...grid.children].forEach((child, i) => {
+    child.style.transitionDelay = `${i * 80}ms`;
+  });
+});
+document.querySelectorAll('.timeline-item, .pubs-list .pub-card').forEach((el, i) => {
+  el.style.transitionDelay = `${i * 60}ms`;
+});
+
+// ── SMOOTH HREF ────────────────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
